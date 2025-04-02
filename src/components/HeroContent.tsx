@@ -38,7 +38,11 @@ export default function Home() {
             creative when crafting effective websites and apps.
           </p>
 
-          <ActionButton text="MORE ABOUT ME" icon={ArrowRight} />
+          <ActionButton
+            text="MORE ABOUT ME"
+            icon={ArrowRight}
+            action={() => {}}
+          />
         </div>
       </div>
     </>

@@ -15,8 +15,59 @@ import { Textarea } from "./ui/textarea";
 
 import PageHeading from "./PageHeading";
 import ActionButton from "./ActionButton";
+import { useState } from "react";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleChange = (e: any) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const sendEmail = () => {
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.subject ||
+      !formData.message
+    ) {
+      alert("Please fill in all fields");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      alert("Please enter a valid email address");
+      return;
+    }
+
+    const mailtoUrl = `mailto:ishikajain121126@gmail.com?subject=${encodeURIComponent(
+      formData.subject
+    )}&body=${encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
+    )}`;
+
+    // Open default email client
+    window.location.href = mailtoUrl;
+
+    // Optional: Clear form after sending
+    setFormData({
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
+  };
+
   return (
     <div className="flex items-center flex-col px-6 w-full h-full">
       {/* Background Text */}
@@ -101,26 +152,38 @@ export default function Contact() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Input
               type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
               placeholder="YOUR NAME"
               className="bg-zinc-800 border-none h-14 rounded-md"
             />
             <Input
               type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
               placeholder="YOUR EMAIL"
               className="bg-zinc-800 border-none h-14 rounded-md"
             />
           </div>
           <Input
             type="text"
+            name="subject"
+            value={formData.subject}
+            onChange={handleChange}
             placeholder="YOUR SUBJECT"
             className="bg-zinc-800 border-none h-14 rounded-md"
           />
           <Textarea
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
             placeholder="YOUR MESSAGE"
             className="bg-zinc-800 border-none min-h-[200px] rounded-md"
           />
           <div className="flex justify-end">
-            <ActionButton text="SEND MESSAGE" icon={Send} />
+            <ActionButton text="SEND MESSAGE" icon={Send} action={sendEmail} />
           </div>
         </div>
       </div>
