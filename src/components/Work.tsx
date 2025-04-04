@@ -3,38 +3,46 @@
 import { useState } from "react";
 import Image from "next/image";
 import PageHeading from "./PageHeading";
+import weatherApp from "../../public/assets/weather app.jpg";
+import gpt3 from "../../public/assets/gpt3.png";
+import restaurant from "../../public/assets/restaurant.png";
+import ecommerce from "../../public/assets/ecommerce.png";
 
 export default function Work() {
   const [activeFilter, setActiveFilter] = useState("ALL");
 
   // Portfolio categories
-  const categories = ["ALL", "LOGO", "VIDEO", "GRAPHIC DESIGN", "MOCKUP"];
+  const categories = ["ALL", "VANILLA JS", "REACT", "NEXT", "FULLSTACK"];
 
   // Portfolio items
   const portfolioItems = [
     {
       id: 1,
-      title: "Paper Craft",
-      category: "MOCKUP",
-      image: "/placeholder.svg",
+      title: "Weather App",
+      category: "REACT",
+      image: weatherApp,
+      link: "https://weather-magic.netlify.app/",
     },
     {
       id: 2,
-      title: "Lucky Cat",
-      category: "LOGO",
-      image: "/placeholder.svg",
+      title: "GPT3",
+      category: "REACT",
+      image: gpt3,
+      link: "https://worldofgpt3.netlify.app/",
     },
     {
       id: 3,
-      title: "Hardware Tools",
-      category: "MOCKUP",
-      image: "/placeholder.svg",
+      title: "Restaurant Page",
+      category: "React",
+      image: restaurant,
+      link: "https://relaxed-shortbread-29fb80.netlify.app/",
     },
     {
       id: 4,
-      title: "Fortune Cookies",
-      category: "GRAPHIC DESIGN",
-      image: "/placeholder.svg",
+      title: "Ecommerce Site",
+      category: "FULLSTACK",
+      image: ecommerce,
+      link: "https://shopito-ecommerce-app.netlify.app/",
     },
     {
       id: 5,
@@ -81,24 +89,23 @@ export default function Work() {
       {/* Portfolio Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredItems.map((item) => (
-          <div
-            key={item.id}
-            className="group relative overflow-hidden rounded-lg cursor-pointer"
-          >
-            <Image
-              src={item.image || "/placeholder.svg"}
-              alt={item.title}
-              width={500}
-              height={350}
-              className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-amber-400/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div className="text-center">
-                <h3 className="text-xl font-bold text-black">{item.title}</h3>
-                <p className="text-black/70">{item.category}</p>
+          <a href={item.link} key={item.id}>
+            <div className="group relative overflow-hidden rounded-lg cursor-pointer">
+              <Image
+                src={item.image || "/placeholder.svg"}
+                alt={item.title}
+                width={500}
+                height={350}
+                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-amber-400/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="text-center">
+                  <h3 className="text-xl font-bold text-black">{item.title}</h3>
+                  <p className="text-black/70">{item.category}</p>
+                </div>
               </div>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </div>
