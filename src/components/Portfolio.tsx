@@ -6,6 +6,7 @@ import Contact from "./Contact";
 import About from "./About";
 import Work from "./Work";
 import Home from "./HeroContent";
+import { useTheme } from "@/context/ThemeContext";
 
 const ElementToDisplay = ({ tab }: { tab: string }) => {
   switch (tab) {
@@ -22,16 +23,19 @@ const ElementToDisplay = ({ tab }: { tab: string }) => {
 
 const Portfolio = () => {
   const [selectedTab, setSelectedTab] = useState("Home");
+  const { state } = useTheme();
 
   return (
-    <div className="w-full h-full bg-black">
+    <div className={`w-full h-full ${state.isDark ? "bg-black" : "bg-white"}`}>
       <Navbar selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
-      <div className={`w-full h-full `}>
-        <div className=" text-white">
-          {/* Main Content */}
-          <div className="container mx-auto pl-5 pr-15 pt-4 min-h-screen flex items-center">
-            <ElementToDisplay tab={selectedTab} />
-          </div>
+      <div
+        className={`w-full h-full ${
+          state.isDark ? "text-white" : "text-black"
+        }`}
+      >
+        {/* Main Content */}
+        <div className="container mx-auto pl-5 pr-15 pt-4 min-h-screen flex items-center">
+          <ElementToDisplay tab={selectedTab} />
         </div>
       </div>
     </div>

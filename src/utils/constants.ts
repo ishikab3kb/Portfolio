@@ -1,3 +1,8 @@
+import weatherApp from "../../public/assets/weather app.jpg";
+import gpt3 from "../../public/assets/gpt3.png";
+import restaurant from "../../public/assets/restaurant.png";
+import ecommerce from "../../public/assets/ecommerce.png";
+
 export const PERSONAL_INFO = [
   { label: "First Name:", value: "Ishika" },
   { label: "Last Name:", value: "Jain" },
@@ -6,7 +11,7 @@ export const PERSONAL_INFO = [
   { label: "Freelance:", value: "Available" },
   { label: "Phone:", value: "+91 7690830782" },
   { label: "Email:", value: "ishikajain121126@gmail.com" },
-  { label: "Languages:", value: "Hindi, English" },
+  // { label: "Languages:", value: "Hindi, English" },
 ];
 
 export const STATS = [
@@ -59,5 +64,38 @@ export const TIMELINE = [
     type: "education",
     description:
       "Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit",
+  },
+];
+
+export const CATEGORIES = ["ALL", "FRONTEND", "FULLSTACK"];
+
+export const PORTFOLIO_ITEMS = [
+  {
+    id: 1,
+    title: "Weather App",
+    category: "FRONTEND",
+    image: weatherApp,
+    link: "https://weather-magic.netlify.app/",
+  },
+  {
+    id: 2,
+    title: "GPT3",
+    category: "FRONTEND",
+    image: gpt3,
+    link: "https://worldofgpt3.netlify.app/",
+  },
+  {
+    id: 3,
+    title: "Restaurant Page",
+    category: "FRONTEND",
+    image: restaurant,
+    link: "https://relaxed-shortbread-29fb80.netlify.app/",
+  },
+  {
+    id: 4,
+    title: "Ecommerce Site",
+    category: "FULLSTACK",
+    image: ecommerce,
+    link: "https://shopito-ecommerce-app.netlify.app/",
   },
 ];

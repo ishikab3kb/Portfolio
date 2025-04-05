@@ -3,82 +3,39 @@
 import { useState } from "react";
 import Image from "next/image";
 import PageHeading from "./PageHeading";
-import weatherApp from "../../public/assets/weather app.jpg";
-import gpt3 from "../../public/assets/gpt3.png";
-import restaurant from "../../public/assets/restaurant.png";
-import ecommerce from "../../public/assets/ecommerce.png";
+
+import { useTheme } from "@/context/ThemeContext";
+import { CATEGORIES, PORTFOLIO_ITEMS } from "@/utils/constants";
 
 export default function Work() {
   const [activeFilter, setActiveFilter] = useState("ALL");
+  const { state } = useTheme();
 
   // Portfolio categories
-  const categories = ["ALL", "VANILLA JS", "REACT", "NEXT", "FULLSTACK"];
 
-  // Portfolio items
-  const portfolioItems = [
-    {
-      id: 1,
-      title: "Weather App",
-      category: "REACT",
-      image: weatherApp,
-      link: "https://weather-magic.netlify.app/",
-    },
-    {
-      id: 2,
-      title: "GPT3",
-      category: "REACT",
-      image: gpt3,
-      link: "https://worldofgpt3.netlify.app/",
-    },
-    {
-      id: 3,
-      title: "Restaurant Page",
-      category: "React",
-      image: restaurant,
-      link: "https://relaxed-shortbread-29fb80.netlify.app/",
-    },
-    {
-      id: 4,
-      title: "Ecommerce Site",
-      category: "FULLSTACK",
-      image: ecommerce,
-      link: "https://shopito-ecommerce-app.netlify.app/",
-    },
-    {
-      id: 5,
-      title: "Paper Butterfly",
-      category: "VIDEO",
-      image: "/placeholder.svg",
-    },
-    {
-      id: 6,
-      title: "Origami Flower",
-      category: "GRAPHIC DESIGN",
-      image: "/placeholder.svg",
-    },
-  ];
-
-  // Filter items based on active category
   const filteredItems =
     activeFilter === "ALL"
-      ? portfolioItems
-      : portfolioItems.filter((item) => item.category === activeFilter);
+      ? PORTFOLIO_ITEMS
+      : PORTFOLIO_ITEMS.filter((item) => item.category === activeFilter);
 
   return (
-    <div>
+    <div className="w-[98%]">
       {/* Background Text */}
       <PageHeading bgText="WORK" headingw="MY" headingy="PORTFOLIO" />
 
       {/* Filter Navigation */}
       <div className="flex flex-wrap justify-center gap-6 mb-12">
-        {categories.map((category) => (
+        {CATEGORIES.map((category) => (
           <button
             key={category}
-            className={`text-lg font-medium transition-colors ${
-              activeFilter === category
-                ? "text-amber-400"
-                : "text-white hover:text-amber-400"
-            }`}
+            className={`text-lg font-medium transition-colors hover:text-amber-400
+              ${
+                activeFilter === category
+                  ? "text-amber-400"
+                  : state.isDark
+                  ? "text-white"
+                  : "text-zinc-700"
+              }`}
             onClick={() => setActiveFilter(category)}
           >
             {category}
@@ -94,11 +51,15 @@ export default function Work() {
               <Image
                 src={item.image || "/placeholder.svg"}
                 alt={item.title}
-                width={500}
+                width={450}
                 height={350}
                 className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-amber-400/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div
+                className={`absolute inset-0 ${
+                  state.isDark ? "bg-amber-400" : "bg-amber-200"
+                } flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+              >
                 <div className="text-center">
                   <h3 className="text-xl font-bold text-black">{item.title}</h3>
                   <p className="text-black/70">{item.category}</p>

@@ -4,53 +4,11 @@ import { Download } from "lucide-react";
 import PageHeading from "./PageHeading";
 import ActionButton from "./ActionButton";
 import { PERSONAL_INFO, SKILLS, STATS, TIMELINE } from "@/utils/constants";
+import CircularProgress from "./CircularProgress";
+import { useTheme } from "@/context/ThemeContext";
 
 export default function About() {
-  // Function to render circular progress
-  const CircularProgress = ({ percentage }: { percentage: number }) => {
-    const radius = 40;
-    const circumference = 2 * Math.PI * radius;
-    const offset = circumference - (percentage / 100) * circumference;
-
-    return (
-      <svg className="w-24 h-24" viewBox="0 0 100 100">
-        {/* Background circle */}
-        <circle
-          cx="50"
-          cy="50"
-          r={radius}
-          fill="transparent"
-          stroke="#333"
-          strokeWidth="8"
-        />
-        {/* Progress circle */}
-        <circle
-          cx="50"
-          cy="50"
-          r={radius}
-          fill="transparent"
-          stroke="#fbbf24"
-          strokeWidth="8"
-          strokeDasharray={circumference}
-          strokeDashoffset={offset}
-          strokeLinecap="round"
-          transform="rotate(-90 50 50)"
-        />
-        {/* Percentage text */}
-        <text
-          x="50"
-          y="50"
-          textAnchor="middle"
-          dominantBaseline="middle"
-          fill="white"
-          fontSize="18"
-          fontWeight="bold"
-        >
-          {percentage}%
-        </text>
-      </svg>
-    );
-  };
+  const { state } = useTheme();
 
   const handleDownloadCV = () => {
     // Direct download using window.open
@@ -63,16 +21,22 @@ export default function About() {
       <PageHeading bgText="RESUME" headingw="ABOUT" headingy="ME" />
 
       {/* Personal Info Section */}
-      <div className="mb-16">
-        <h3 className="text-xl font-bold mb-6">PERSONAL INFOS</h3>
+      <div className="mb-16 h-full w-full">
+        <h3 className="text-xl font-bold mb-6">PERSONAL INFO</h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Left column - Personal details */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {PERSONAL_INFO.map((info, index) => (
-              <div key={index} className="flex flex-col">
-                <span className="text-sm">{info.label}</span>
-                <span className="font-medium">{info.value}</span>
+              <div key={index} className="flex gap-1 items-center flex-wrap">
+                <span
+                  className={`text-sm font-light ${
+                    state.isDark ? "text-zinc-300" : "text-zinc-600"
+                  }`}
+                >
+                  {info.label}
+                </span>
+                <span className="text-sm font-medium">{info.value}</span>
               </div>
             ))}
 
@@ -90,7 +54,9 @@ export default function About() {
             {STATS.map((stat, index) => (
               <div
                 key={index}
-                className="bg-zinc-900 p-6 rounded-md flex flex-col items-center justify-center"
+                className={`${
+                  state.isDark ? "bg-zinc-900" : "bg-zinc-200"
+                } p-6 rounded-md flex flex-col items-center justify-center`}
               >
                 <div className="text-3xl font-bold text-amber-400 mb-1">
                   {stat.value}
@@ -134,8 +100,14 @@ export default function About() {
               <div className="w-1/2 pr-8">
                 {item && item.type === "experience" && (
                   <div className="relative flex flex-col items-end">
-                    <div className="text-right">
-                      <div className="mb-2 text-amber-400 text-sm font-medium">
+                    <div className="text-right flex flex-col items-end">
+                      <div
+                        className={`mb-2 text-xs justify-end rounded-full p-1 w-fit ${
+                          state.isDark
+                            ? "bg-zinc-700 text-zinc-300"
+                            : "bg-zinc-300 text-zinc-700"
+                        }`}
+                      >
                         {item.year}
                       </div>
                       <h4 className="text-lg font-bold mb-1">
@@ -159,7 +131,13 @@ export default function About() {
               <div className="w-1/2 pl-8">
                 {item && item.type === "education" && (
                   <div className="relative">
-                    <div className="mb-2 text-amber-400 text-sm font-medium">
+                    <div
+                      className={`mb-2 text-amber-400 text-xs rounded-full p-1 w-fit ${
+                        state.isDark
+                          ? "bg-zinc-700 text-zinc-300"
+                          : "bg-zinc-300 text-zinc-700"
+                      }`}
+                    >
                       {item.year}
                     </div>
                     <h4 className="text-lg font-bold mb-1">

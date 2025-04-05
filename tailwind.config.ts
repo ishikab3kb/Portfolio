@@ -9,6 +9,22 @@ const config = {
     "./src/**/*.{ts,tsx}",
     "*.{js,ts,jsx,tsx,mdx}",
   ],
+  // safelist: [
+  //   // Adding safelist for arbitrary group names
+  //   "group/Home",
+  //   "group-hover/Home",
+  //   "group/About",
+  //   "group-hover/About",
+  //   "group/Projects",
+  //   "group-hover/Projects",
+  //   "group/Blog",
+  //   "group-hover/Blog",
+  //   "group/Contact",
+  //   "group-hover/Contact",
+  //   // Adding generic numeric indexes for safety
+  //   ...Array.from({ length: 10 }, (_, i) => `group/${i}`),
+  //   ...Array.from({ length: 10 }, (_, i) => `group-hover/${i}`),
+  // ],
   theme: {
     container: {
       center: true,

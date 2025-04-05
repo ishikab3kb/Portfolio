@@ -1,3 +1,4 @@
+import { useTheme } from "@/context/ThemeContext";
 import React from "react";
 
 type Props = {
@@ -7,9 +8,14 @@ type Props = {
 };
 
 const PageHeading = ({ bgText, headingw, headingy }: Props) => {
+  const { state } = useTheme();
   return (
     <div className="flex justify-center">
-      <h1 className="text-7xl font-bold text-zinc-800/50 text-center absolute top-0 left-0 right-0 select-none md:text-9xl">
+      <h1
+        className={`text-7xl font-bold ${
+          state.isDark ? "text-zinc-800/50" : "text-zinc-300/50"
+        } text-center absolute top-0 select-none md:text-9xl`}
+      >
         {bgText}
       </h1>
 
