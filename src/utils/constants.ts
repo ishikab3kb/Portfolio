@@ -15,8 +15,8 @@ export const PERSONAL_INFO = [
 ];
 
 export const STATS = [
-  { value: "12", label: "YEARS OF EXPERIENCE", plus: true },
-  { value: "97", label: "COMPLETED PROJECTS", plus: true },
+  { value: "2", label: "YEARS OF EXPERIENCE", plus: true },
+  { value: "10", label: "COMPLETED PROJECTS", plus: true },
   { value: "81", label: "HAPPY CUSTOMERS", plus: true },
   { value: "53", label: "AWARDS WON", plus: true },
 ];
@@ -24,12 +24,12 @@ export const STATS = [
 export const SKILLS = [
   { name: "HTML", percentage: 95 },
   { name: "JAVASCRIPT", percentage: 89 },
-  { name: "CSS", percentage: 70 },
-  { name: "NODE.JS", percentage: 66 },
-  { name: "DJANGO", percentage: 95 },
-  { name: "PYTHON", percentage: 50 },
+  { name: "CSS", percentage: 87 },
+  { name: "REACT", percentage: 82 },
+  { name: "NODE.JS", percentage: 54 },
+  { name: "DJANGO", percentage: 60 },
+  { name: "PYTHON", percentage: 70 },
   { name: "NEXT", percentage: 65 },
-  { name: "REACT", percentage: 45 },
 ];
 
 export const TIMELINE = [
@@ -39,7 +39,7 @@ export const TIMELINE = [
     company: "CHAKR INNOVATION",
     type: "experience",
     description:
-      "Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit",
+      "Developed dynamic experiment dashboards in Next.js, integrating complex nested forms, interactive D3.js visualizations, and advanced filtering systems, improving user experience and productivity. Implemented secure authentication with JWT and SSO, enabling seamless integration with Django.",
   },
   {
     year: "2023 - 2024",
@@ -47,7 +47,7 @@ export const TIMELINE = [
     company: "CAPGEMINI",
     type: "experience",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod duis aute irure dolor.",
+      "Developed interactive dashboards in Palantir for Airbus, visualizing airline activities and improving workflow efficiency for users. Enhanced UI/UX with dynamic graphs and tables for better data insights.",
   },
   {
     year: "2022 - 2023",
@@ -55,7 +55,7 @@ export const TIMELINE = [
     company: "CAPGEMINI",
     type: "experience",
     description:
-      "Lorem ipsum dolor sit amet, tempor incididunt ut laboreconsectetur elit, sed do eiusmod tempor duntt.",
+      "Developed an interactive ad-browsing experience for Disney+ Hotstar, boosting viewer engagement by 20%, and led frontend development for HSBC’s Data Pipeline project, optimizing data access and increasing business conversions by 25%.",
   },
   {
     year: "2018 - 2022",
@@ -63,7 +63,7 @@ export const TIMELINE = [
     company: "LNM INSTITUTE OF INFORMATION TECHNOLOGY",
     type: "education",
     description:
-      "Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore adipisicing elit",
+      "Completed a bachelor's in Mechanical Engineering and developed a strong interest in frontend development while working on a summer project in college. Transitioned into building dynamic web applications, focusing on intuitive UI/UX and interactive dashboards.",
   },
 ];
 

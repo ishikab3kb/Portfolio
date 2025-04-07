@@ -17,15 +17,12 @@ export default function About() {
 
   return (
     <div className="flex flex-col justify-center max-w-full">
-      {/* Background Text */}
       <PageHeading bgText="RESUME" headingw="ABOUT" headingy="ME" />
 
-      {/* Personal Info Section */}
       <div className="mb-16 h-full w-full">
         <h3 className="text-xl font-bold mb-6">PERSONAL INFO</h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Left column - Personal details */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {PERSONAL_INFO.map((info, index) => (
               <div key={index} className="flex gap-1 items-center flex-wrap">
@@ -49,7 +46,6 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right column - Stats */}
           <div className="grid grid-cols-2 gap-4">
             {STATS.map((stat, index) => (
               <div
@@ -69,7 +65,6 @@ export default function About() {
         </div>
       </div>
 
-      {/* Skills Section */}
       <div className="mb-16">
         <h3 className="text-xl font-bold mb-6 text-center">MY SKILLS</h3>
 
@@ -83,7 +78,6 @@ export default function About() {
         </div>
       </div>
 
-      {/* Experience & Education Section */}
       <div>
         <h3 className="text-xl font-bold mb-6 text-center">
           EXPERIENCE & EDUCATION

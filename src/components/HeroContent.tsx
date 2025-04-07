@@ -4,9 +4,12 @@ import ProfileImg from "../../public/assets/profile.jpg";
 import { ArrowRight } from "lucide-react";
 import ActionButton from "./ActionButton";
 import { useTheme } from "@/context/ThemeContext";
+import AboutModal from "./AboutModal";
+import { useState } from "react";
 
 export default function Home() {
   const { state } = useTheme();
+  const [openModal, setOpenModal] = useState(false);
   return (
     <>
       <div className="flex flex-col md:flex-row gap-8 items-center justify-center">
@@ -24,7 +27,7 @@ export default function Home() {
         </div>
 
         {/* Content Section */}
-        <div className="space-y-6 flex-1 text-center md:text-left">
+        <div className="space-y-6 flex-1 flex flex-col items-center md:items-start text-center md:text-left">
           <div>
             <h1 className="text-amber-400 text-4xl md:text-5xl font-bold mb-2">
               I&apos;M ISHIKA JAIN.
@@ -47,8 +50,9 @@ export default function Home() {
           <ActionButton
             text="MORE ABOUT ME"
             icon={ArrowRight}
-            action={() => {}}
+            action={() => setOpenModal(true)}
           />
+          <AboutModal isOpen={openModal} onClose={() => setOpenModal(false)} />
         </div>
       </div>
     </>

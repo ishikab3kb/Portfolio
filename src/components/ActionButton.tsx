@@ -6,7 +6,7 @@ import { useTheme } from "@/context/ThemeContext";
 interface ActionButtonProps {
   icon: LucideIcon;
   text?: string;
-  action: any;
+  action: () => void;
 }
 
 const ActionButton: React.FC<ActionButtonProps> = ({

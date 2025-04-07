@@ -34,7 +34,7 @@ const Portfolio = () => {
         }`}
       >
         {/* Main Content */}
-        <div className="container mx-auto pl-5 pr-5 md:pr-18 pt-4 min-h-screen flex justify-center items-center">
+        <div className="container mx-auto pl-5 pr-5 md:pr-18 pt-4 pb-17 md:pb-0 min-h-screen flex justify-center items-center">
           <ElementToDisplay tab={selectedTab} />
         </div>
       </div>

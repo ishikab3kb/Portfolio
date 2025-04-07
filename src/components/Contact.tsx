@@ -105,7 +105,7 @@ export default function Contact() {
                     state.isDark ? "text-zinc-400" : "text-zinc-600"
                   }`}
                 >
-                  123 Stree New York City, United States Of America 750065.
+                  V-10/43 DLF Phase 3, Sector 24, Gurugram, Haryana India.
                 </p>
               </div>
             </div>

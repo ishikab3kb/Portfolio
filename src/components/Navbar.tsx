@@ -1,19 +1,11 @@
 "use client";
 import { useState } from "react";
-import {
-  Sun,
-  Home,
-  User,
-  Briefcase,
-  Mail,
-  MessageSquare,
-  Moon,
-} from "lucide-react";
+import { Sun, Home, User, Briefcase, Mail, Moon } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
 
 type Props = {
   selectedTab: string;
-  setSelectedTab: any;
+  setSelectedTab: (x: string) => void;
 };
 
 const Navbar = ({ selectedTab, setSelectedTab }: Props) => {
@@ -48,7 +40,7 @@ const Navbar = ({ selectedTab, setSelectedTab }: Props) => {
           { icon: User, label: "About" },
           { icon: Briefcase, label: "Portfolio" },
           { icon: Mail, label: "Contact" },
-          { icon: MessageSquare, label: "Chat" },
+          // { icon: MessageSquare, label: "Chat" },
         ].map((item) => (
           <button
             key={item.label}
@@ -64,19 +56,16 @@ const Navbar = ({ selectedTab, setSelectedTab }: Props) => {
                       } hover:gap-2
                     `}
             onClick={() => setSelectedTab(item.label)}
-            onMouseEnter={() => setHoveredItem(item.label)}
-            onMouseLeave={() => setHoveredItem(null)}
+            onMouseOver={() => setHoveredItem(item.label)}
+            onMouseOut={() => setHoveredItem(null)}
           >
             <item.icon className="w-5 h-5" />
             <span
               className={`overflow-hidden whitespace-nowrap transition-all duration-300 ease-in-out ${
-                hoveredItem === item.label ? "max-w-[200px]" : "max-w-[0]"
-              } ${hoveredItem === item.label ? "opacity-100" : "opacity-0"}`}
-              style={{
-                // maxWidth: hoveredItem === item.label ? "200px" : "0",
-                // opacity: hoveredItem === item.label ? 1 : 0,
-                marginLeft: hoveredItem === item.label ? "0.75rem" : "0",
-              }}
+                hoveredItem === item.label
+                  ? "max-w-[200px] opacity-100 ml-3"
+                  : "max-w-[0] opacity-0 ml-0"
+              }`}
             >
               {item.label}
             </span>
