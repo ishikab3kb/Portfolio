@@ -20,7 +20,7 @@ const Navbar = ({ selectedTab, setSelectedTab }: Props) => {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const { state, dispatch } = useTheme();
   return (
-    <div className="z-20">
+    <div className="relative z-20">
       {/* Theme Toggle */}
       <button
         onClick={() => dispatch({ type: "TOGGLE_THEME" })}

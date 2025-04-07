@@ -71,7 +71,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="flex items-center flex-col px-6 w-full h-full">
+    <div className="flex flex-col px-6 w-full h-full">
       {/* Background Text */}
       <PageHeading bgText="CONTACT" headingw="GET IN" headingy="TOUCH" />
 
