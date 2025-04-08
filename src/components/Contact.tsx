@@ -27,7 +27,11 @@ export default function Contact() {
   });
   const { state } = useTheme();
 
-  const handleChange = (e: any) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
