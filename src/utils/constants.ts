@@ -1,7 +1,8 @@
 import weatherApp from "../../public/assets/weather app.jpg";
-import gpt3 from "../../public/assets/gpt3.png";
+import gpt3 from "../../public/assets/gpt3.jpg";
 import restaurant from "../../public/assets/restaurant.png";
 import ecommerce from "../../public/assets/ecommerce.png";
+import todoapp from "../../public/assets/todoapp.jpg";
 
 export const PERSONAL_INFO = [
   { label: "First Name:", value: "Ishika" },
@@ -97,5 +98,12 @@ export const PORTFOLIO_ITEMS = [
     category: "FULLSTACK",
     image: ecommerce,
     link: "https://shopito-ecommerce-app.netlify.app/",
+  },
+  {
+    id: 5,
+    title: "TO DO App",
+    category: "FULLSTACK",
+    image: todoapp,
+    link: "https://inquisitive-bombolone-9c7ea0.netlify.app/",
   },
 ];

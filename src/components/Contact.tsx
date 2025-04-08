@@ -157,7 +157,7 @@ export default function Contact() {
 
           <div className="flex gap-3 pt-4">
             <a
-              href="#"
+              href="https://github.com/ishikab3kb"
               className={`p-3 ${
                 state.isDark ? "bg-zinc-800" : "bg-zinc-300"
               } rounded-full hover:bg-amber-400 transition-colors`}
@@ -169,7 +169,7 @@ export default function Contact() {
               />
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/ishikajain1999/"
               className={`p-3 ${
                 state.isDark ? "bg-zinc-800" : "bg-zinc-300"
               } rounded-full hover:bg-amber-400 transition-colors`}
