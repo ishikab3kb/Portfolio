@@ -12,7 +12,7 @@ const Navbar = ({ selectedTab, setSelectedTab }: Props) => {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const { state, dispatch } = useTheme();
   return (
-    <div className="relative z-20">
+    <div className="relative z-20 bg-transparent ">
       {/* Theme Toggle */}
       <button
         onClick={() => dispatch({ type: "TOGGLE_THEME" })}
@@ -32,8 +32,8 @@ const Navbar = ({ selectedTab, setSelectedTab }: Props) => {
       {/* Navigation Icons */}
       <div
         className={`fixed bottom-0 p-2 w-full justify-evenly ${
-          state.isDark ? "bg-zinc-700 backdrop-brightness-0" : "bg-zinc-400"
-        } md:right-6 md:top-1/2 md:w-fit md:bg-transparent md:-translate-y-1/2 md:p-0 flex md:flex-col gap-6`}
+          state.isDark ? "bg-zinc-700" : "bg-zinc-400"
+        } md:right-6 backdrop-brightness-0  md:backdrop-brightness-100 md:top-1/2 md:w-fit md:bg-transparent md:-translate-y-1/2 md:p-0 flex md:flex-col gap-6`}
       >
         {[
           { icon: Home, label: "Home" },
@@ -42,7 +42,10 @@ const Navbar = ({ selectedTab, setSelectedTab }: Props) => {
           { icon: Mail, label: "Contact" },
           // { icon: MessageSquare, label: "Chat" },
         ].map((item) => (
-          <div key={item.label} className="flex justify-end">
+          <div
+            key={item.label}
+            className="flex justify-end h-fit bg-transparent"
+          >
             <button
               className={`p-3 rounded-full flex flex-row-reverse items-center transition-colors 
                       ${

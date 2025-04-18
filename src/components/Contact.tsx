@@ -109,7 +109,7 @@ export default function Contact() {
                     state.isDark ? "text-zinc-400" : "text-zinc-600"
                   }`}
                 >
-                  V-10/43 DLF Phase 3, Sector 24, Gurugram, Haryana India.
+                  DLF Phase 3, Sector 24, Gurugram, Haryana India.
                 </p>
               </div>
             </div>
