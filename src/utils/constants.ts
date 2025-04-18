@@ -35,7 +35,7 @@ export const SKILLS = [
 
 export const TIMELINE = [
   {
-    year: "2024 - PRESENT",
+    year: "2024 - 2025",
     title: "FRONTEND DEVELOPER",
     company: "CHAKR INNOVATION",
     type: "experience",

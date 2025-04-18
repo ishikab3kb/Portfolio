@@ -42,9 +42,9 @@ const Navbar = ({ selectedTab, setSelectedTab }: Props) => {
           { icon: Mail, label: "Contact" },
           // { icon: MessageSquare, label: "Chat" },
         ].map((item) => (
-          <button
-            key={item.label}
-            className={`p-3 rounded-full flex flex-row-reverse items-center transition-colors 
+          <div key={item.label} className="flex justify-end">
+            <button
+              className={`p-3 rounded-full flex flex-row-reverse items-center transition-colors 
                       ${
                         item.label === selectedTab
                           ? state.isDark
@@ -55,21 +55,22 @@ const Navbar = ({ selectedTab, setSelectedTab }: Props) => {
                           : "bg-zinc-200 hover:bg-amber-200"
                       } hover:gap-2
                     `}
-            onClick={() => setSelectedTab(item.label)}
-            onMouseOver={() => setHoveredItem(item.label)}
-            onMouseOut={() => setHoveredItem(null)}
-          >
-            <item.icon className="w-5 h-5" />
-            <span
-              className={`overflow-hidden whitespace-nowrap transition-all duration-300 ease-in-out ${
-                hoveredItem === item.label
-                  ? "max-w-[200px] opacity-100 ml-3"
-                  : "max-w-[0] opacity-0 ml-0"
-              }`}
+              onClick={() => setSelectedTab(item.label)}
+              onMouseOver={() => setHoveredItem(item.label)}
+              onMouseOut={() => setHoveredItem(null)}
             >
-              {item.label}
-            </span>
-          </button>
+              <item.icon className="w-5 h-5" />
+              <span
+                className={`overflow-hidden whitespace-nowrap transition-all duration-300 ease-in-out ${
+                  hoveredItem === item.label
+                    ? "max-w-[200px] opacity-100 ml-3"
+                    : "max-w-[0] opacity-0 ml-0"
+                }`}
+              >
+                {item.label}
+              </span>
+            </button>
+          </div>
         ))}
       </div>
     </div>
